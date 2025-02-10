@@ -1,14 +1,14 @@
 function count(str) {
-  const letterMap = new Map();
-
-  for (let char of str.replace(/\s+/g, "").toLowerCase()) {
-    if (letterMap.has(char)) {
-      letterMap.set(char, letterMap.get(char) + 1);
-    } else {
-      letterMap.set(char, 1);
-    }
+  const letterCount = {};
+  
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i].toLowerCase();
+    if (char === ' ') continue;
+    
+    letterCount[char] = (letterCount[char] || 0) + 1;
   }
-
-  return letterMap;
+  
+  return letterCount;
 }
+
 count("Aadil");
